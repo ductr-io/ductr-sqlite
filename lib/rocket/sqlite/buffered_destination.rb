@@ -6,12 +6,10 @@ module Rocket
     # A destination control that accumulates rows in a buffer to write them by batch, registered as `:buffered`.
     # Accept the `:buffer_size` option, default value is 10 000:
     #
-    # ```ruby
-    # destination :some_sqlite_database, :buffered, buffer_size: 42
-    # def my_destination(buffer, db)
-    #   db[:items].multi_insert(buffer)
-    # end
-    # ```
+    #   destination :some_sqlite_database, :buffered, buffer_size: 42
+    #   def my_destination(buffer, db)
+    #     db[:items].multi_insert(buffer)
+    #   end
     #
     # @see more Rocket::ETL::BufferedDestination
     #
