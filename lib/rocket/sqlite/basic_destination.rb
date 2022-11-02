@@ -5,12 +5,10 @@ module Rocket
     #
     # A destination control that write rows one by one, registered as `:basic`:
     #
-    # ```ruby
-    # destination :some_sqlite_database, :basic
-    # def my_destination(row, db)
-    #   db[:items].insert(row)
-    # end
-    # ```
+    #   destination :some_sqlite_database, :basic
+    #   def my_destination(row, db)
+    #     db[:items].insert(row)
+    #   end
     #
     class BasicDestination < Rocket::ETL::Destination
       Adapter.destination_registry.add(self, as: :basic)

@@ -13,12 +13,10 @@ module Rocket
     # Unless the `:buffered` lookup, this one abstracts the row matching logic by assuming that
     # you want to merge rows based on a key couple e.g. primary / foreign keys:
     #
-    # ```ruby
-    # lookup :some_sqlite_database, :match, merge: [:id, :item], buffer_size: 42
-    # def merge_with_stuff(db, ids)
-    #   db[:items_bis].where(item: ids)
-    # end
-    # ```
+    #   lookup :some_sqlite_database, :match, merge: [:id, :item], buffer_size: 42
+    #   def merge_with_stuff(db, ids)
+    #     db[:items_bis].where(item: ids)
+    #   end
     #
     class MatchLookup < Rocket::ETL::BufferedTransform
       Adapter.lookup_registry.add(self, as: :match)
