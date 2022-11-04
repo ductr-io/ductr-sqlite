@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A lookup control that execute the query for a bunch of rows, registered as `:buffered`.
@@ -19,7 +19,7 @@ module Rocket
     #     end
     #   end
     #
-    class BufferedLookup < Rocket::ETL::BufferedTransform
+    class BufferedLookup < Ductr::ETL::BufferedTransform
       Adapter.lookup_registry.add(self, as: :buffered)
 
       #

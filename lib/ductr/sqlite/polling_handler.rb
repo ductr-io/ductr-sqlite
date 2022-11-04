@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # The rufus-scheduler handler class.
@@ -11,9 +11,9 @@ module Rocket
       #
       # Creates the handler based on the given scheduler, its method name and the trigger's adapter instance.
       #
-      # @param [Rocket::Scheduler] scheduler The scheduler instance
+      # @param [Ductr::Scheduler] scheduler The scheduler instance
       # @param [Symbol] method_name The scheduler's method name
-      # @param [Rocket::Adapter] adapter The trigger's adapter
+      # @param [Ductr::Adapter] adapter The trigger's adapter
       #
       def initialize(scheduler, method_name, adapter)
         @scheduler = scheduler

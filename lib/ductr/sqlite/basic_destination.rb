@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A destination control that write rows one by one, registered as `:basic`:
@@ -10,7 +10,7 @@ module Rocket
     #     db[:items].insert(row)
     #   end
     #
-    class BasicDestination < Rocket::ETL::Destination
+    class BasicDestination < Ductr::ETL::Destination
       Adapter.destination_registry.add(self, as: :basic)
 
       #

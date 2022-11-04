@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe Rocket::SQLite::BasicSource do
+RSpec.describe Ductr::SQLite::BasicSource do
   let(:source) { described_class.new("dummy_context", :dummy_method) }
 
   describe "control registration" do
-    let(:registered) { Rocket::SQLite::Adapter.source_registry.find_by_type(:basic) }
+    let(:registered) { Ductr::SQLite::Adapter.source_registry.find(:basic) }
 
     it "registers as :basic" do
       expect(registered).not_to be_nil
@@ -17,7 +17,7 @@ RSpec.describe Rocket::SQLite::BasicSource do
 
   describe "#each" do
     let(:yielder) { proc {} }
-    let(:adapter_double) { instance_double(Rocket::SQLite::Adapter) }
+    let(:adapter_double) { instance_double(Ductr::SQLite::Adapter) }
     let(:db_double) { instance_double(Sequel::Database) }
     let(:query_double) { instance_double(Array) }
 

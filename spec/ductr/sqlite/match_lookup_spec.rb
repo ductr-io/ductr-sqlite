@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-RSpec.describe Rocket::SQLite::MatchLookup do
+RSpec.describe Ductr::SQLite::MatchLookup do
   let(:options) { %i[one two] }
   let(:lookup) { described_class.new("dummy_context", :dummy_method, merge: options) }
-  let(:adapter_double) { instance_double(Rocket::SQLite::Adapter) }
+  let(:adapter_double) { instance_double(Ductr::SQLite::Adapter) }
 
   describe "control registration" do
-    let(:registered) { Rocket::SQLite::Adapter.lookup_registry.find_by_type(:match) }
+    let(:registered) { Ductr::SQLite::Adapter.lookup_registry.find(:match) }
 
     it "registers as :match" do
       expect(registered).not_to be_nil
@@ -30,7 +30,7 @@ RSpec.describe Rocket::SQLite::MatchLookup do
   end
 
   describe "#on_flush" do
-    let(:adapter_double) { instance_double(Rocket::SQLite::Adapter) }
+    let(:adapter_double) { instance_double(Ductr::SQLite::Adapter) }
     let(:db_double) { instance_double(Sequel::Database) }
     let(:buffer) { [{ one: 1 }] }
 

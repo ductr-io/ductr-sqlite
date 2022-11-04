@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A lookup control that execute one query per row, registered as `:basic`.
@@ -16,7 +16,7 @@ module Rocket
     #
     # If the lookup returns a falsy value, nothing won't be merged with the current row.
     #
-    class BasicLookup < Rocket::ETL::Transform
+    class BasicLookup < Ductr::ETL::Transform
       Adapter.lookup_registry.add(self, as: :basic)
 
       #

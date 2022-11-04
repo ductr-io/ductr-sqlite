@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A source control that yields rows one by one, registered as `:basic`:
@@ -12,7 +12,7 @@ module Rocket
     #
     # Do not try to select a large number of rows, as they will all be loaded into memory.
     #
-    class BasicSource < Rocket::ETL::Source
+    class BasicSource < Ductr::ETL::Source
       Adapter.source_registry.add(self, as: :basic)
 
       #

@@ -7,7 +7,7 @@ SimpleCov.start do
   track_files "lib/**/*.rb"
 end
 
-require "rocket/sqlite"
+require "ductr/sqlite"
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"

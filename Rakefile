@@ -34,5 +34,5 @@ task :sord do
   plugin.parlour = Parlour::RbsGenerator.new(break_params: options[:break_params])
   plugin.generate(plugin.parlour.root)
 
-  File.write("sig/rocket_etl/sqlite.rbs", plugin.parlour.send(:rbs))
+  File.write("sig/ductr/sqlite.rbs", plugin.parlour.send(:rbs))
 end

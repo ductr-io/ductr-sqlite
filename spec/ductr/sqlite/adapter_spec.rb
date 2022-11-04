@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-RSpec.describe Rocket::SQLite::Adapter do
+RSpec.describe Ductr::SQLite::Adapter do
   let(:name) { :my_adapter }
   let(:config) { { hello: :test } }
   let(:adapter) { described_class.new(name, **config) }
 
   describe "adapter registration" do
-    let(:registered) { Rocket.adapter_registry.find_by_type(:sqlite) }
+    let(:registered) { Ductr.adapter_registry.find(:sqlite) }
 
     it "registers as :sqlite" do
       expect { registered }.not_to raise_error

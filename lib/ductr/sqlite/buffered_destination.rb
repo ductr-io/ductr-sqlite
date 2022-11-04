@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A destination control that accumulates rows in a buffer to write them by batch, registered as `:buffered`.
@@ -11,9 +11,9 @@ module Rocket
     #     db[:items].multi_insert(buffer)
     #   end
     #
-    # @see more Rocket::ETL::BufferedDestination
+    # @see more Ductr::ETL::BufferedDestination
     #
-    class BufferedDestination < Rocket::ETL::BufferedDestination
+    class BufferedDestination < Ductr::ETL::BufferedDestination
       Adapter.destination_registry.add(self, as: :buffered)
 
       #
