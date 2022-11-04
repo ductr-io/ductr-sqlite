@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A trigger based on the RufusTrigger, runs the PollingHandler at the given timing.
@@ -14,7 +14,7 @@ module Rocket
     #     MyJob.perform_later
     #   end
     #
-    class PollingTrigger < Rocket::RufusTrigger
+    class PollingTrigger < Ductr::RufusTrigger
       Adapter.trigger_registry.add(self, as: :polling)
 
       #
@@ -32,7 +32,7 @@ module Rocket
       #
       # Returns a callable object, allowing rufus-scheduler to call it.
       #
-      # @param [Scheduler] scheduler The scheduler instance
+      # @param [Ductr::Scheduler] scheduler The scheduler instance
       # @param [Symbol] method_name The scheduler's method name
       # @param [Hash] ** The option passed to the trigger annotation
       #
@@ -45,10 +45,10 @@ module Rocket
       #
       # Returns the adapter corresponding to the given adapter_name.
       #
-      # @return [Rocket::Adapter] The trigger's adapter instance
+      # @return [Ductr::Adapter] The trigger's adapter instance
       #
       def adapter
-        Rocket.config.adapter(@adapter_name)
+        Ductr.config.adapter(@adapter_name)
       end
     end
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A lookup control that execute the query for a bunch of rows, registered as `:match`.
@@ -18,7 +18,7 @@ module Rocket
     #     db[:items_bis].where(item: ids)
     #   end
     #
-    class MatchLookup < Rocket::ETL::BufferedTransform
+    class MatchLookup < Ductr::ETL::BufferedTransform
       Adapter.lookup_registry.add(self, as: :match)
 
       #

@@ -1,19 +1,20 @@
 # frozen_string_literal: true
 
-require_relative "lib/rocket/sqlite/version"
+require_relative "lib/ductr/sqlite/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "rocket_etl-sqlite"
-  spec.version = Rocket::SQLite::VERSION
+  spec.name = "ductr-sqlite"
+  spec.version = Ductr::SQLite::VERSION
   spec.authors = ["Mathieu MOREL"]
   spec.email = ["mathieu@lamanufacture.dev"]
 
-  spec.summary = "SQLite adapter for Rocket"
+  spec.summary = "SQLite adapter for Ductr using the `sequel` gem"
   spec.description = "Allows rocket to interact with SQLite DMBS."
   spec.homepage = "https://gitlab.com/la-manufacture/rocket/sqlite"
   spec.required_ruby_version = ">= 3.1.0"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  spec.metadata["rubygems_mfa_required"] = "true"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
@@ -41,6 +42,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov", "~> 0.21"
   spec.add_development_dependency "sord", "~> 4.0"
   spec.add_development_dependency "yard", "~> 0.9"
-
-  spec.metadata["rubygems_mfa_required"] = "true"
 end

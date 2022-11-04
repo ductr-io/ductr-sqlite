@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # The SQLite adapter class implement the required #open! and #close! methods to handle the database connection.
@@ -14,8 +14,8 @@ module Rocket
     #     database: "example.db"
     # ```
     #
-    class Adapter < Rocket::Adapter
-      Rocket.adapter_registry.add(self, as: :sqlite)
+    class Adapter < Ductr::Adapter
+      Ductr.adapter_registry.add(self, as: :sqlite)
 
       # @return [Sequel::Database, nil] The database connection instance
       attr_reader :db

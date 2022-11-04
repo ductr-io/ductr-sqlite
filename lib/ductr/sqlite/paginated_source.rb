@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Rocket
+module Ductr
   module SQLite
     #
     # A source control that allows to select a big number of rows by relying on pagination, registered as `:paginated`.
@@ -14,7 +14,7 @@ module Rocket
     # Ensure to not select more rows than the configured page size,
     # otherwise it will raise an `InconsistentPaginationError`.
     #
-    class PaginatedSource < Rocket::ETL::PaginatedSource
+    class PaginatedSource < Ductr::ETL::PaginatedSource
       Adapter.source_registry.add(self, as: :paginated)
 
       #

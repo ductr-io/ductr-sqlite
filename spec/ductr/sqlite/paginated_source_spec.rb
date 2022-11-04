@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe Rocket::SQLite::PaginatedSource do
+RSpec.describe Ductr::SQLite::PaginatedSource do
   let(:source) { described_class.new("dummy_context", :dummy_method) }
 
   describe "control registration" do
-    let(:registered) { Rocket::SQLite::Adapter.source_registry.find_by_type(:paginated) }
+    let(:registered) { Ductr::SQLite::Adapter.source_registry.find(:paginated) }
 
     it "registers as :paginated" do
       expect(registered).not_to be_nil
@@ -16,7 +16,7 @@ RSpec.describe Rocket::SQLite::PaginatedSource do
   end
 
   describe "#each_page" do
-    let(:adapter_double) { instance_double(Rocket::SQLite::Adapter) }
+    let(:adapter_double) { instance_double(Ductr::SQLite::Adapter) }
     let(:db_double) { instance_double(Sequel::Database) }
     let(:query_double) { instance_double(Array) }
 
@@ -58,7 +58,7 @@ RSpec.describe Rocket::SQLite::PaginatedSource do
       end
 
       it "raises an error" do
-        expect { source.each_page { |row| row } }.to raise_error(Rocket::InconsistentPaginationError)
+        expect { source.each_page { |row| row } }.to raise_error(Ductr::InconsistentPaginationError)
       end
     end
   end

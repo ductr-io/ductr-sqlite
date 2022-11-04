@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe Rocket::SQLite::BasicDestination do
+RSpec.describe Ductr::SQLite::BasicDestination do
   let(:destination) { described_class.new("dummy_context", :dummy_method) }
-  let(:adapter_double) { instance_double(Rocket::SQLite::Adapter) }
+  let(:adapter_double) { instance_double(Ductr::SQLite::Adapter) }
 
   describe "control registration" do
-    let(:registered) { Rocket::SQLite::Adapter.destination_registry.find_by_type(:basic) }
+    let(:registered) { Ductr::SQLite::Adapter.destination_registry.find(:basic) }
 
     it "registers as :basic" do
       expect(registered).not_to be_nil

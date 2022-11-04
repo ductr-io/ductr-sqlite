@@ -1,12 +1,12 @@
-# SQLite adapter for Rocket ETL
-This gem provides useful controls to operate Rocket with SQLite databases.
+# SQLite adapter for Ductr ETL
+This gem provides useful controls to operate Ductr with SQLite databases.
 
 ## Installation
 
 Add this line to your application's `Gemfile`:
 
 ```ruby
-gem 'rocket_etl-sqlite'
+gem 'ductr-sqlite'
 ```
 
 And then execute:
@@ -35,7 +35,7 @@ adapters:
 You can pass any option recognized by sequel.
 See [the Sequel SQLite options list](https://sequel.jeremyevans.net/rdoc-adapters/classes/Sequel/SQLite/Database.html#method-i-connect) for further details.
 
-The configured adapter can now be used in Rocket jobs e.g.:
+The configured adapter can now be used in Ductr jobs e.g.:
 
 ```ruby
 source :some_sqlite_database, :paginated, page_size: 42
@@ -52,8 +52,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitLab at https://gitlab.com/[USERNAME]/rocket_etl-sqlite. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://gitlab.com/[USERNAME]/rocket_etl-sqlite/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitLab at https://gitlab.com/[USERNAME]/ductr-sqlite. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://gitlab.com/[USERNAME]/ductr-sqlite/blob/master/CODE_OF_CONDUCT.md).
 
 ## Code of Conduct
 
-Everyone interacting in the RocketEtl::SQLite project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://gitlab.com/[USERNAME]/rocket_etl-sqlite/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the DuctrEtl::SQLite project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://gitlab.com/[USERNAME]/ductr-sqlite/blob/master/CODE_OF_CONDUCT.md).
