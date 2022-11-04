@@ -1,12 +1,14 @@
 GIT
-  remote: git@gitlab.com:la-manufacture/rocket/annotable.git
+  remote: git@gitlab.com:la-manufacture/annotable.git
   revision: 5e75a14604041f57beac2fa96c76e2f03da592dc
   branch: master
   specs:
     annotable (0.1.2)
 
-PATH
-  remote: ../rocket
+GIT
+  remote: git@gitlab.com:la-manufacture/ductr/ductr.git
+  revision: 98df36f205845e12da73990c1de9ca8d1ce804b9
+  branch: main
   specs:
     ductr (0.1.0)
       activejob (~> 7.0)
