@@ -41,15 +41,6 @@ module Ductr
       def callable(scheduler, method_name, **)
         PollingHandler.new(scheduler, method_name, adapter)
       end
-
-      #
-      # Returns the adapter corresponding to the given adapter_name.
-      #
-      # @return [Ductr::Adapter] The trigger's adapter instance
-      #
-      def adapter
-        Ductr.config.adapter(@adapter_name)
-      end
     end
   end
 end

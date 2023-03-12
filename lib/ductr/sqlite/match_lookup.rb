@@ -49,8 +49,6 @@ module Ductr
       # @return [void]
       #
       def on_flush(&)
-        adapter.open! unless adapter.db
-
         call_method(adapter.db, buffer_keys).each do |row|
           match = buffer_find(row)
           next yield(row) unless match

@@ -27,28 +27,13 @@ RSpec.describe Ductr::SQLite::BasicLookup do
       allow(lookup).to receive(:call_method).and_return([])
     end
 
-    context "when the database is opened" do
+    context "when processing a row" do
       before do
         lookup.process(row)
-      end
-
-      it "doesn't open the database" do
-        expect(adapter_double).not_to have_received(:open!)
       end
 
       it "calls the job method with row and db" do
         expect(lookup).to have_received(:call_method).with(row, db_double)
-      end
-    end
-
-    context "when the database is closed" do
-      before do
-        allow(adapter_double).to receive(:db).and_return(nil)
-        lookup.process(row)
-      end
-
-      it "opens the database" do
-        expect(adapter_double).to have_received(:open!)
       end
     end
 
@@ -64,7 +49,7 @@ RSpec.describe Ductr::SQLite::BasicLookup do
         allow(row).to receive(:merge).and_return(:row_with_matched)
       end
 
-      it "merges the row with the mathing row" do
+      it "merges the row with the matching row" do
         lookup.process(row)
         expect(row).to have_received(:merge).with(:match)
       end

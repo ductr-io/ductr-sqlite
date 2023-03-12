@@ -11,45 +11,25 @@ RSpec.describe Ductr::SQLite::BasicDestination do
       expect(registered).not_to be_nil
     end
 
-    it "registers the the control class" do
+    it "registers the control class" do
       expect(registered).to eq(described_class)
     end
   end
 
   describe "#write" do
     let(:db_double) { instance_double(Sequel::Database) }
-    let(:row) { :row }
+    let(:row) { instance_double(Hash) }
 
     before do
-      allow(adapter_double).to receive(:open!).and_return(db_double)
+      allow(adapter_double).to receive(:db).and_return(db_double)
       allow(destination).to receive(:adapter).and_return(adapter_double)
       allow(destination).to receive(:call_method)
+
+      destination.write(row)
     end
 
-    context "when the database is opened" do
-      before do
-        allow(adapter_double).to receive(:db).and_return(db_double)
-        destination.write(row)
-      end
-
-      it "doesn't open the database" do
-        expect(adapter_double).not_to have_received(:open!)
-      end
-
-      it "calls the job method with row and db" do
-        expect(destination).to have_received(:call_method).with(row, db_double)
-      end
-    end
-
-    context "when the database is closed" do
-      before do
-        allow(adapter_double).to receive(:db).and_return(nil)
-        destination.write(row)
-      end
-
-      it "opens the database" do
-        expect(adapter_double).to have_received(:open!)
-      end
+    it "calls the job method with row and db" do
+      expect(destination).to have_received(:call_method).with(row, db_double)
     end
   end
 end

@@ -21,8 +21,6 @@ module Ductr
       # @return [void]
       #
       def write(row)
-        adapter.open! unless adapter.db
-
         call_method(row, adapter.db)
       end
     end

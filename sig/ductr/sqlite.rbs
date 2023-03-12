@@ -63,7 +63,7 @@ module Ductr
     # 
     # If the lookup returns a falsy value, nothing won't be merged with the current row.
     class BasicLookup < Ductr::ETL::Transform
-      # Opens the database if needed and call the job's method to merge its result with the current row.
+      # Calls the job's method to merge its result with the current row.
       # 
       # _@param_ `row` — The current row, preferably a Hash
       # 
@@ -154,16 +154,13 @@ module Ductr
     # @see https://github.com/jmettraux/rufus-scheduler#scheduling-handler-instances
     #   For further information
     class PollingHandler
-      # sord warn - Ductr::Scheduler wasn't able to be resolved to a constant in this project
       # sord warn - Ductr::Adapter wasn't able to be resolved to a constant in this project
       # Creates the handler based on the given scheduler, its method name and the trigger's adapter instance.
       # 
-      # _@param_ `scheduler` — The scheduler instance
-      # 
-      # _@param_ `method_name` — The scheduler's method name
+      # _@param_ `method` — The scheduler's method
       # 
       # _@param_ `adapter` — The trigger's adapter
-      def initialize: (Ductr::Scheduler scheduler, Symbol method_name, Ductr::Adapter adapter) -> void
+      def initialize: (Method method, Ductr::Adapter adapter) -> void
 
       # The callable method used by the trigger, actually calls the scheduler's method.
       def call: () -> void
@@ -196,12 +193,6 @@ module Ductr
       # 
       # _@return_ — A callable object
       def callable: (Ductr::Scheduler scheduler, Symbol method_name) -> untyped
-
-      # sord warn - Ductr::Adapter wasn't able to be resolved to a constant in this project
-      # Returns the adapter corresponding to the given adapter_name.
-      # 
-      # _@return_ — The trigger's adapter instance
-      def adapter: () -> Ductr::Adapter
     end
 
     # 

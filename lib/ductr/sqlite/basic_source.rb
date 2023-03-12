@@ -23,9 +23,7 @@ module Ductr
       # @return [void]
       #
       def each(&)
-        adapter.open do |db|
-          call_method(db).each(&)
-        end
+        call_method(adapter.db).each(&)
       end
     end
   end
