@@ -3,6 +3,7 @@
     "bindir",
     "circleci",
     "DMBS",
+    "ductr",
     "inflector",
     "kiba",
     "Mathieu",
@@ -13,6 +14,7 @@
     "rubocop",
     "simplecov",
     "sord",
+    "sqlite",
     "webrick",
     "yieldparam",
     "zeitwerk"

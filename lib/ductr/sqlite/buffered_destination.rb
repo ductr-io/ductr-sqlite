@@ -22,8 +22,6 @@ module Ductr
       # @return [void]
       #
       def on_flush
-        adapter.open! unless adapter.db
-
         call_method(buffer, adapter.db)
       end
     end

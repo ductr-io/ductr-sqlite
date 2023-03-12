@@ -35,28 +35,11 @@ RSpec.describe Ductr::SQLite::MatchLookup do
     let(:buffer) { [{ one: 1 }] }
 
     before do
-      allow(adapter_double).to receive(:open!).and_return(db_double)
       allow(adapter_double).to receive(:db).and_return(db_double)
       allow(lookup).to receive(:adapter).and_return(adapter_double)
       allow(lookup).to receive(:call_method).and_return([])
 
       lookup.instance_variable_set(:@buffer, buffer)
-    end
-
-    context "when the database is opened" do
-      it "doesn't open the database" do
-        lookup.on_flush
-        expect(adapter_double).not_to have_received(:open!)
-      end
-    end
-
-    context "when the database is closed" do
-      let(:db_double) { nil }
-
-      it "opens the database" do
-        lookup.on_flush
-        expect(adapter_double).to have_received(:open!)
-      end
     end
 
     context "when there is no matching row in the buffer" do

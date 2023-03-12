@@ -22,38 +22,18 @@ RSpec.describe Ductr::SQLite::BufferedUpsertDestination do
     let(:buffer) { [{ a: :b }] }
 
     before do
-      allow(adapter_double).to receive(:open!).and_return(db_double)
+      allow(adapter_double).to receive(:db).and_return(db_double)
       allow(destination).to receive(:adapter).and_return(adapter_double)
       allow(destination).to receive(:excluded).and_return(dummy_excluded)
       allow(destination).to receive(:call_method)
 
       destination.instance_variable_set(:@buffer, buffer)
+
+      destination.on_flush
     end
 
-    context "when the database is opened" do
-      before do
-        allow(adapter_double).to receive(:db).and_return(db_double)
-        destination.on_flush
-      end
-
-      it "doesn't open the database" do
-        expect(adapter_double).not_to have_received(:open!)
-      end
-
-      it "calls the job method with buffer, excluded hash and db" do
-        expect(destination).to have_received(:call_method).with(buffer, dummy_excluded, db_double)
-      end
-    end
-
-    context "when the database is closed" do
-      before do
-        allow(adapter_double).to receive(:db).and_return(nil)
-        destination.on_flush
-      end
-
-      it "opens the database" do
-        expect(adapter_double).to have_received(:open!)
-      end
+    it "calls the job method with buffer, excluded hash and db" do
+      expect(destination).to have_received(:call_method).with(buffer, dummy_excluded, db_double)
     end
   end
 

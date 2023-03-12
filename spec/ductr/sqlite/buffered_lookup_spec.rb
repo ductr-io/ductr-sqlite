@@ -22,7 +22,6 @@ RSpec.describe Ductr::SQLite::BufferedLookup do
     let(:yielder) { proc {} }
 
     before do
-      allow(adapter_double).to receive(:open!).and_return(db_double)
       allow(adapter_double).to receive(:db).and_return(db_double)
       allow(lookup).to receive(:adapter).and_return(adapter_double)
       allow(lookup).to receive(:call_method)
@@ -30,20 +29,6 @@ RSpec.describe Ductr::SQLite::BufferedLookup do
       lookup.instance_variable_set(:@buffer, dummy_buffer)
 
       lookup.on_flush(&yielder)
-    end
-
-    context "when the database is opened" do
-      it "doesn't open the database" do
-        expect(adapter_double).not_to have_received(:open!)
-      end
-    end
-
-    context "when the database is closed" do
-      let(:db_double) { nil }
-
-      it "opens the database" do
-        expect(adapter_double).to have_received(:open!)
-      end
     end
 
     it "calls the method with db, buffer and the yielder block" do # rubocop:disable RSpec/MultipleExpectations

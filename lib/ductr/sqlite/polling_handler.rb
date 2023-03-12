@@ -11,13 +11,11 @@ module Ductr
       #
       # Creates the handler based on the given scheduler, its method name and the trigger's adapter instance.
       #
-      # @param [Ductr::Scheduler] scheduler The scheduler instance
-      # @param [Symbol] method_name The scheduler's method name
+      # @param [Method] method The scheduler's method
       # @param [Ductr::Adapter] adapter The trigger's adapter
       #
-      def initialize(scheduler, method_name, adapter)
-        @scheduler = scheduler
-        @method_name = method_name
+      def initialize(method, adapter)
+        @method = method
         @adapter = adapter
         @last_triggering_key = nil
       end
@@ -29,7 +27,7 @@ module Ductr
       #
       def call
         @adapter.open do |db|
-          @scheduler.send(@method_name, db) do |triggering_key|
+          @method.call(db) do |triggering_key|
             return false if triggering_key == @last_triggering_key
 
             @last_triggering_key = triggering_key

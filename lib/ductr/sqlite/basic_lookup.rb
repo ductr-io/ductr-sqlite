@@ -20,15 +20,13 @@ module Ductr
       Adapter.lookup_registry.add(self, as: :basic)
 
       #
-      # Opens the database if needed and call the job's method to merge its result with the current row.
+      # Calls the job's method to merge its result with the current row.
       #
       # @param [Hash<Symbol, Object>] row The current row, preferably a Hash
       #
       # @return [Hash<Symbol, Object>] The row merged with looked up row or the untouched row if nothing was found
       #
       def process(row)
-        adapter.open! unless adapter.db
-
         matching_row = call_method(row, adapter.db).first
         return row unless matching_row
 

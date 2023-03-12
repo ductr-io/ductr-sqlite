@@ -23,15 +23,11 @@ RSpec.describe Ductr::SQLite::BasicSource do
 
     before do
       allow(source).to receive(:adapter).and_return(adapter_double)
-      allow(adapter_double).to receive(:open).and_yield(db_double)
+      allow(adapter_double).to receive(:db).and_return(db_double)
       allow(source).to receive(:call_method).and_return(query_double)
       allow(query_double).to receive(:each)
 
       source.each(&yielder)
-    end
-
-    it "opens the database" do
-      expect(adapter_double).to have_received(:open)
     end
 
     it "calls the method with db" do
