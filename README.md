@@ -15,10 +15,10 @@ And then execute:
 $ bundle install
 ```
 
-Require `rocket/sqlite` in the `config/app.rb` file:
+Require `ductr/sqlite` in the `config/app.rb` file:
 
 ```ruby
-require "rocket/sqlite"
+require "ductr/sqlite"
 ```
 
 ## Usage
