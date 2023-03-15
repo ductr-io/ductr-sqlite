@@ -52,8 +52,12 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitLab at https://gitlab.com/[USERNAME]/ductr-sqlite. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://gitlab.com/[USERNAME]/ductr-sqlite/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/ductr-io/ductr. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/ductr-io/ductr-sqlite/blob/main/CODE_OF_CONDUCT.md).
 
 ## Code of Conduct
 
-Everyone interacting in the DuctrEtl::SQLite project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://gitlab.com/[USERNAME]/ductr-sqlite/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Ductr::SQLite project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ductr-io/ductr-sqlite/blob/main/CODE_OF_CONDUCT.md).
+
+## License
+
+The gem is available as open source under the terms of the [LGPLv3 or later](https://opensource.org/license/lgpl-3-0/).

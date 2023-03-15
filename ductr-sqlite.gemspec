@@ -7,18 +7,19 @@ Gem::Specification.new do |spec|
   spec.version = Ductr::SQLite::VERSION
   spec.authors = ["Mathieu MOREL"]
   spec.email = ["mathieu@lamanufacture.dev"]
+  spec.licenses = ["LGPL-3.0-or-later"]
 
   spec.summary = "SQLite adapter for Ductr using the `sequel` gem"
   spec.description = "Allows rocket to interact with SQLite DMBS."
-  spec.homepage = "https://gitlab.com/la-manufacture/rocket/sqlite"
+  spec.homepage = "https://github.com/ductr-io/ductr"
   spec.required_ruby_version = ">= 3.1.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
-  spec.metadata["changelog_uri"] = "#{spec.homepage}/-/releases"
+  spec.metadata["changelog_uri"] = "#{spec.homepage}/releases"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -31,8 +32,10 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "sequel"
-  spec.add_dependency "sqlite3"
+  spec.add_dependency "annotable", "~> 0.1"
+  spec.add_dependency "ductr", "~> 0.1"
+  spec.add_dependency "sequel", "~> 5.66"
+  spec.add_dependency "sqlite3", "~> 1.6"
 
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "redcarpet", "~> 3.5"
