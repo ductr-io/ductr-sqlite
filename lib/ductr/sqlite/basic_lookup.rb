@@ -7,7 +7,7 @@ module Ductr
     # The job's method must return a row which will merged with the current row:
     #
     #   lookup :some_sqlite_database, :basic
-    #   def my_lookup(row, db)
+    #   def my_lookup(db, row)
     #     db[:items_bis].where(item: row[:id]).limit(1)
     #   end
     #
@@ -27,7 +27,7 @@ module Ductr
       # @return [Hash<Symbol, Object>] The row merged with looked up row or the untouched row if nothing was found
       #
       def process(row)
-        matching_row = call_method(row, adapter.db).first
+        matching_row = call_method(adapter.db, row).first
         return row unless matching_row
 
         row.merge matching_row

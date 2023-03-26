@@ -33,7 +33,7 @@ RSpec.describe Ductr::SQLite::BasicLookup do
       end
 
       it "calls the job method with row and db" do
-        expect(lookup).to have_received(:call_method).with(row, db_double)
+        expect(lookup).to have_received(:call_method).with(db_double, row)
       end
     end
 

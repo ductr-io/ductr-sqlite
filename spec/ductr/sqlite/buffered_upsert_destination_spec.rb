@@ -33,7 +33,7 @@ RSpec.describe Ductr::SQLite::BufferedUpsertDestination do
     end
 
     it "calls the job method with buffer, excluded hash and db" do
-      expect(destination).to have_received(:call_method).with(buffer, dummy_excluded, db_double)
+      expect(destination).to have_received(:call_method).with(db_double, dummy_excluded, buffer)
     end
   end
 

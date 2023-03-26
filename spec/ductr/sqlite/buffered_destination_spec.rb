@@ -31,7 +31,7 @@ RSpec.describe Ductr::SQLite::BufferedDestination do
     end
 
     it "calls the job method with buffer and db" do
-      expect(destination).to have_received(:call_method).with(buffer, db_double)
+      expect(destination).to have_received(:call_method).with(db_double, buffer)
     end
   end
 end

@@ -7,7 +7,7 @@ module Ductr
     # Accept the `:buffer_size` option, default value is 10 000:
     #
     #   destination :some_sqlite_database, :buffered_upsert, buffer_size: 42
-    #   def my_destination(buffer, excluded, db)
+    #   def my_destination(db, excluded, buffer)
     #     db[:items].insert_conflict(target: :id, update: excluded).multi_insert(buffer)
     #   end
     #
@@ -22,7 +22,7 @@ module Ductr
       # @return [void]
       #
       def on_flush
-        call_method(buffer, excluded, adapter.db)
+        call_method(adapter.db, excluded, buffer)
       end
 
       private

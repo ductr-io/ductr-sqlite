@@ -29,7 +29,7 @@ RSpec.describe Ductr::SQLite::BasicDestination do
     end
 
     it "calls the job method with row and db" do
-      expect(destination).to have_received(:call_method).with(row, db_double)
+      expect(destination).to have_received(:call_method).with(db_double, row)
     end
   end
 end

@@ -7,7 +7,7 @@ module Ductr
     # Accept the `:buffer_size` option, default value is 10 000:
     #
     #   destination :some_sqlite_database, :buffered, buffer_size: 42
-    #   def my_destination(buffer, db)
+    #   def my_destination(db, buffer)
     #     db[:items].multi_insert(buffer)
     #   end
     #
@@ -22,7 +22,7 @@ module Ductr
       # @return [void]
       #
       def on_flush
-        call_method(buffer, adapter.db)
+        call_method(adapter.db, buffer)
       end
     end
   end

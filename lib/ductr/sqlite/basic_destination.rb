@@ -6,7 +6,7 @@ module Ductr
     # A destination control that write rows one by one, registered as `:basic`:
     #
     #   destination :some_sqlite_database, :basic
-    #   def my_destination(row, db)
+    #   def my_destination(db, row)
     #     db[:items].insert(row)
     #   end
     #
@@ -21,7 +21,7 @@ module Ductr
       # @return [void]
       #
       def write(row)
-        call_method(row, adapter.db)
+        call_method(adapter.db, row)
       end
     end
   end
