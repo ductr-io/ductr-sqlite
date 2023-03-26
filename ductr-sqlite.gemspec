@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.licenses = ["LGPL-3.0-or-later"]
 
   spec.summary = "SQLite adapter for Ductr using the `sequel` gem"
-  spec.description = "Allows rocket to interact with SQLite DMBS."
+  spec.description = "Allows ductr to interact with SQLite DMBS."
   spec.homepage = "https://github.com/ductr-io/ductr"
   spec.required_ruby_version = ">= 3.1.0"
 
@@ -32,7 +32,6 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "annotable", "~> 0.1"
   spec.add_dependency "ductr", "~> 0.1"
   spec.add_dependency "sequel", "~> 5.66"
   spec.add_dependency "sqlite3", "~> 1.6"
