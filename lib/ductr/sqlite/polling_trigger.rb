@@ -33,13 +33,13 @@ module Ductr
       # Returns a callable object, allowing rufus-scheduler to call it.
       #
       # @param [Ductr::Scheduler] scheduler The scheduler instance
-      # @param [Symbol] method_name The scheduler's method name
+      # @param [Method] method The scheduler's method
       # @param [Hash] ** The option passed to the trigger annotation
       #
       # @return [#call] A callable object
       #
-      def callable(scheduler, method_name, **)
-        PollingHandler.new(scheduler, method_name, adapter)
+      def callable(method, **)
+        PollingHandler.new(method, adapter)
       end
     end
   end
