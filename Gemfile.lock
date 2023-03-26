@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ductr-sqlite (0.1.1)
+    ductr-sqlite (0.1.2)
       ductr (~> 0.1)
       sequel (~> 5.66)
       sqlite3 (~> 1.6)
