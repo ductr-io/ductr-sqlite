@@ -17,16 +17,6 @@ RSpec.describe Ductr::SQLite::Adapter do
     end
   end
 
-  describe "#initialize" do
-    it "sets the adapter's name" do
-      expect(adapter.name).to eq(name)
-    end
-
-    it "sets the adapter's configuration" do
-      expect(adapter.instance_variable_get(:@config)).to eq(config)
-    end
-  end
-
   describe "#open!" do
     let(:db_double) { instance_double(Sequel::Database) }
 

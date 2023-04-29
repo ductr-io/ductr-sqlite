@@ -14,11 +14,8 @@ module Ductr
     #     database: "example.db"
     # ```
     #
-    class Adapter < Ductr::Adapter
+    class Adapter < Ductr::SequelBase::Adapter
       Ductr.adapter_registry.add(self, as: :sqlite)
-
-      # @return [Sequel::Database, nil] The database connection instance
-      attr_reader :db
 
       #
       # Opens the database connection with the adapter's configuration.
