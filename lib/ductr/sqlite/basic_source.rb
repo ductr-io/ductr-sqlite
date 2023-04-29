@@ -12,19 +12,8 @@ module Ductr
     #
     # Do not try to select a large number of rows, as they will all be loaded into memory.
     #
-    class BasicSource < Ductr::ETL::Source
+    class BasicSource < Ductr::SequelBase::BasicSource
       Adapter.source_registry.add(self, as: :basic)
-
-      #
-      # Opens the database, calls the job's method and iterate over the query results.
-      #
-      # @yield The each block
-      #
-      # @return [void]
-      #
-      def each(&)
-        call_method(adapter.db).each(&)
-      end
     end
   end
 end

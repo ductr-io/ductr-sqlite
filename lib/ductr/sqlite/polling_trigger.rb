@@ -14,33 +14,8 @@ module Ductr
     #     MyJob.perform_later
     #   end
     #
-    class PollingTrigger < Ductr::RufusTrigger
+    class PollingTrigger < Ductr::SequelBase::PollingTrigger
       Adapter.trigger_registry.add(self, as: :polling)
-
-      #
-      # Closes the connection if the scheduler is stopped.
-      #
-      # @return [void]
-      #
-      def stop
-        super
-        adapter.close!
-      end
-
-      private
-
-      #
-      # Returns a callable object, allowing rufus-scheduler to call it.
-      #
-      # @param [Ductr::Scheduler] scheduler The scheduler instance
-      # @param [Method] method The scheduler's method
-      # @param [Hash] ** The option passed to the trigger annotation
-      #
-      # @return [#call] A callable object
-      #
-      def callable(method, **)
-        PollingHandler.new(method, adapter)
-      end
     end
   end
 end

@@ -19,15 +19,15 @@ RSpec.describe Ductr::SQLite::PollingTrigger do
   describe "#callable" do
     let(:scheduler) { instance_double(Ductr::Scheduler) }
     let(:method_double) { instance_double(Method) }
-    let(:handler_double) { instance_double(Ductr::SQLite::PollingHandler) }
+    let(:handler_double) { instance_double(Ductr::SequelBase::PollingHandler) }
 
     before do
-      allow(Ductr::SQLite::PollingHandler).to receive(:new).and_return(handler_double)
+      allow(Ductr::SequelBase::PollingHandler).to receive(:new).and_return(handler_double)
     end
 
     it "creates a PollingHandler" do
       trigger.send(:callable, method_double)
-      expect(Ductr::SQLite::PollingHandler).to have_received(:new).with(method_double, adapter_double)
+      expect(Ductr::SequelBase::PollingHandler).to have_received(:new).with(method_double, adapter_double)
     end
 
     it "returns the handler" do

@@ -13,17 +13,8 @@ module Ductr
     #
     # @see more Ductr::ETL::BufferedDestination
     #
-    class BufferedDestination < Ductr::ETL::BufferedDestination
+    class BufferedDestination < Ductr::SequelBase::BufferedDestination
       Adapter.destination_registry.add(self, as: :buffered)
-
-      #
-      # Open the database if needed and call the job's method to run the query.
-      #
-      # @return [void]
-      #
-      def on_flush
-        call_method(adapter.db, buffer)
-      end
     end
   end
 end

@@ -19,19 +19,8 @@ module Ductr
     #     end
     #   end
     #
-    class BufferedLookup < Ductr::ETL::BufferedTransform
+    class BufferedLookup < Ductr::SequelBase::BufferedLookup
       Adapter.lookup_registry.add(self, as: :buffered)
-
-      #
-      # Opens the database if needed, calls the job's method and pass the each block to it.
-      #
-      # @yield The each block
-      #
-      # @return [void]
-      #
-      def on_flush(&)
-        call_method(adapter.db, buffer, &)
-      end
     end
   end
 end

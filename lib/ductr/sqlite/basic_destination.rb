@@ -10,19 +10,8 @@ module Ductr
     #     db[:items].insert(row)
     #   end
     #
-    class BasicDestination < Ductr::ETL::Destination
+    class BasicDestination < Ductr::SequelBase::BasicDestination
       Adapter.destination_registry.add(self, as: :basic)
-
-      #
-      # Opens the database if needed and call the job's method to insert one row at time.
-      #
-      # @param [Hash<Symbol, Object>] row The row to insert, preferably a Hash
-      #
-      # @return [void]
-      #
-      def write(row)
-        call_method(adapter.db, row)
-      end
     end
   end
 end

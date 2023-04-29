@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Ductr::SQLite::PollingHandler do
+RSpec.describe Ductr::SequelBase::PollingHandler do
   let(:adapter_double) { instance_double(Ductr::SQLite::Adapter) }
   let(:method_double) { instance_double(Method) }
   let(:handler) { described_class.new(method_double, adapter_double) }
