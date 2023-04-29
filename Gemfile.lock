@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    ductr-sqlite (0.1.2)
-      ductr (~> 0.1)
-      sequel (~> 5.66)
+    ductr-sqlite (0.2.0)
+      ductr (~> 0.2)
+      sequel (~> 5.67)
       sqlite3 (~> 1.6)
 
 GEM
@@ -25,7 +25,7 @@ GEM
     concurrent-ruby (1.2.2)
     diff-lcs (1.5.0)
     docile (1.4.0)
-    ductr (0.1.2)
+    ductr (0.2.2)
       activejob (~> 7.0)
       annotable (~> 0.1)
       colorize (~> 0.8)
@@ -52,7 +52,7 @@ GEM
       parser
       rainbow (~> 3.0)
       sorbet-runtime (>= 0.5)
-    parser (3.2.1.1)
+    parser (3.2.2.0)
       ast (~> 2.4.1)
     raabro (1.4.0)
     rainbow (3.1.1)
@@ -69,7 +69,7 @@ GEM
     rspec-expectations (3.12.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
-    rspec-mocks (3.12.4)
+    rspec-mocks (3.12.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.12.0)
     rspec-support (3.12.0)
@@ -93,20 +93,20 @@ GEM
     ruby-progressbar (1.13.0)
     rufus-scheduler (3.8.2)
       fugit (~> 1.1, >= 1.1.6)
-    sequel (5.66.0)
+    sequel (5.67.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    sorbet-runtime (0.5.10736)
+    sorbet-runtime (0.5.10746)
     sord (4.0.0)
       commander (~> 4.5)
       parlour (~> 5.0)
       sorbet-runtime
       yard
-    sqlite3 (1.6.1-x86_64-linux)
+    sqlite3 (1.6.2-x86_64-linux)
     thor (1.2.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
