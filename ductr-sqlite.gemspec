@@ -32,8 +32,8 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "ductr", "~> 0.1"
-  spec.add_dependency "sequel", "~> 5.66"
+  spec.add_dependency "ductr", "~> 0.2"
+  spec.add_dependency "sequel", "~> 5.67"
   spec.add_dependency "sqlite3", "~> 1.6"
 
   spec.add_development_dependency "rake", "~> 13.0"
