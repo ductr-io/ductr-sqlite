@@ -37,11 +37,11 @@ Gem::Specification.new do |spec|
   spec.add_dependency "sqlite3", "~> 1.6"
 
   spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "redcarpet", "~> 3.5"
-  spec.add_development_dependency "rspec", "~> 3.11"
-  spec.add_development_dependency "rubocop", "~> 1.29"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.11"
-  spec.add_development_dependency "simplecov", "~> 0.21"
-  spec.add_development_dependency "sord", "~> 4.0"
+  spec.add_development_dependency "redcarpet", "~> 3.6"
+  spec.add_development_dependency "rspec", "~> 3.12"
+  spec.add_development_dependency "rubocop", "~> 1.50"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.20"
+  spec.add_development_dependency "simplecov", "~> 0.22"
+  spec.add_development_dependency "sord", "~> 5.0"
   spec.add_development_dependency "yard", "~> 0.9"
 end

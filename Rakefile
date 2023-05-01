@@ -22,12 +22,14 @@ task :sord do
     break_params: 4,
     replace_errors_with_untyped: false,
     replace_unresolved_with_untyped: false,
+    hide_private: false,
     exclude_messages: nil,
     include_messages: nil,
     keep_original_comments: false,
     skip_constants: false,
     use_original_initialize_return: false,
-    exclude_untyped: false
+    exclude_untyped: false,
+    tags: []
   }
 
   plugin = Sord::ParlourPlugin.new(options)
